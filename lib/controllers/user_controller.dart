@@ -15,4 +15,8 @@ class UserController extends ChangeNotifier{
   void addUser(User user) {
     _users.add(user);
   }
+
+  void removeUser(User user){
+    _users.remove(user);
+  }
 }
