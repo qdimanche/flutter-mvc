@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/forms/register_form.dart';
-import '../widgets/myscaffold.dart';
+import '../widgets/layout/myscaffold.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});

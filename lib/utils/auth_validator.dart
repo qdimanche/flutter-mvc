@@ -2,7 +2,7 @@ String? validateName(String? value) {
   if (value == null || value.isEmpty) {
     return 'Veuillez entrer votre nom';
   }
-  return '';
+  return null;
 }
 
 String? validateEmail(String? value) {
@@ -12,7 +12,7 @@ String? validateEmail(String? value) {
       .hasMatch(value)) {
     return 'Veuillez entrer un email valide';
   }
-  return '';
+  return null;
 }
 
 String? validatePassword(String? value) {
@@ -27,7 +27,14 @@ String? validatePassword(String? value) {
   } else if (!RegExp(r'(?=.*\d)').hasMatch(value)) {
     return 'Le mot de passe doit contenir au moins un chiffre';
   }
-  return '';
+  return null;
+}
+
+String? validateLoginPassword(String? value) {
+  if (value == null || value.isEmpty) {
+    return 'Entrez votre mot de passe';
+  }
+  return null;
 }
 
 String? confirmPasswordValidator(String? value, String password) {
@@ -36,5 +43,7 @@ String? confirmPasswordValidator(String? value, String password) {
   } else if (value != password) {
     return 'Les mots de passe ne correspondent pas';
   }
-  return '';
+  return null;
 }
+
+

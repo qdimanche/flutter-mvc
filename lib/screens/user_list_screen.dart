@@ -2,8 +2,8 @@ import 'package:flutter/material.dart'; // Import for building UI components
 import 'package:form/models/user.dart'; // Import for User data model
 import 'package:form/controllers/user_controller.dart'; // Import for User management
 import 'package:form/screens/user_details_screen.dart';
-import 'package:form/widgets/add_user_form.dart';
-import 'package:form/widgets/myscaffold.dart'; // Import for Add User form widget
+import 'package:form/widgets/forms/add_user_form.dart';
+import 'package:form/widgets/layout/myscaffold.dart'; // Import for Add User form widget
 
 class UserListScreen extends StatefulWidget {
   const UserListScreen({super.key}); // StatefulWidget for state management

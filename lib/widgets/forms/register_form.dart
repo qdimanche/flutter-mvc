@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:form/components/text_input.dart';
+import 'package:form/widgets/UI/text_input.dart';
 import 'package:form/utils/auth_validator.dart';
 
 import '../../api/user.dart';
@@ -120,41 +120,33 @@ class _RegisterFormState extends State<RegisterForm> {
             TextInput(
               labelText: 'Nom',
               controller: _lastNameController,
-              validator: (value) => validateName(value) ?? '',
+              validator: validateName,
             ),
             const SizedBox(height: 10),
             TextInput(
               labelText: 'Prénom',
               controller: _firstNameController,
-              validator: (value) => validateName(value) ?? '',
+              validator: validateName,
             ),
             const SizedBox(height: 10),
             TextInput(
               controller: _emailController,
               labelText: 'Email',
-              validator: (value) => validateEmail(value) ?? '',
+              validator: validateEmail,
             ),
             const SizedBox(height: 10),
             TextInput(
               labelText: 'Mot de passe',
               controller: _passwordController,
               obscureText: true,
-              validator: (value) => validatePassword(value) ?? '',
+              validator: validatePassword,
             ),
             const SizedBox(height: 10),
             TextInput(
               labelText: 'Confirmez le mot de passe',
               controller: _confirmPasswordController,
               obscureText: true,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Veuillez confirmer votre mot de passe';
-                } else if (value != _passwordController.text) {
-                  return 'Les mots de passe ne correspondent pas';
-                } else {
-                  return '';
-                }
-              },
+              validator: (value) => confirmPasswordValidator(value, _passwordController.text),
             ),
             const SizedBox(height: 10),
             CheckboxListTile(

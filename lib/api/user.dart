@@ -27,3 +27,27 @@ Future<int> registerUser(String firstName, String lastName, String email,
     return 0;
   }
 }
+
+Future<http.Response> loginUser(String email, String password) async {
+  final url = Uri.parse('https://s3-5197.nuage-peda.fr/users/login');
+  final headers = {
+    'accept': 'application/json',
+    'Content-Type': 'application/json',
+  };
+  final body = jsonEncode({
+    'email': email,
+    'password': password,
+  });
+  final response = await http.post(
+    url,
+    headers: headers,
+    body: body,
+  );
+  if (response.statusCode == 200) {
+    return response;
+  } else {
+    throw Exception('Failed to login: ${response.reasonPhrase}');
+  }
+}
+
+

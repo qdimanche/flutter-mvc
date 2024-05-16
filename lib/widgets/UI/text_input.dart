@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class TextInput extends StatelessWidget {
   final TextEditingController controller;
   final String labelText;
-  final String Function(String?)? validator;
+  final String? Function(String?)? validator;
   final bool obscureText;
 
   const TextInput({super.key,
