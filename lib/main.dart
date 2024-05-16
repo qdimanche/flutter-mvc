@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:form/screens/home_screen.dart';
+import 'package:form/screens/register_screen.dart';
+import 'package:form/screens/user_list_screen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -20,7 +22,9 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/': (context) => const HomeScreen()
+        '/': (context) => const HomeScreen(),
+        '/user_list': (context) => const UserListScreen(),
+        '/register': (context) => const RegisterScreen(),
       },
     );
   }
